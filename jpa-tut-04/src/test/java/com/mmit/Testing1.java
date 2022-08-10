@@ -17,6 +17,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import com.mmit.entity.Order_1;
+import com.mmit.entity.Product_2;
+import com.mmit.entity.Order_2;
 import com.mmit.entity.OrderItem_1;
 @TestMethodOrder(OrderAnnotation.class)
 class Testing1 {
@@ -45,7 +47,7 @@ class Testing1 {
 
 	//@Test
 	//@Order(1)
-	void test() {
+	void test_many_to_one() {
 		var order = new Order_1();
 		order.setOrderDate(LocalDate.now());
 		
@@ -64,8 +66,47 @@ class Testing1 {
 		em.getTransaction().commit();
 	}
 	
+	//@Test
+	//@org.junit.jupiter.api.Order(1)
+	void test_many_to_many() {
+		var product1 = new Product_2();
+		product1.setName("Coffee");
+		product1.setPrice(3500);
+		
+		var product2 = new Product_2();
+		product2.setName("Juice");
+		product2.setPrice(1500);
+		
+		var product3 = new Product_2();
+		product3.setName("Milk Tea");
+		product3.setPrice(2200);
+		
+		var order = new Order_2();
+		order.setOrderDate(LocalDate.now());
+		
+		order.addProduct(product1);
+		order.addProduct(product2);
+		order.addProduct(product3);
+		
+		em.getTransaction().begin();
+		em.persist(order);
+		em.getTransaction().commit();
+	}
+	 
+	//@Test
+	//@org.junit.jupiter.api.Order(2)
+	void remove_from_order() {
+		System.out.println("Remove Product");
+		var product = em.find(Product_2.class, 1);
+		var order = em.find(Order_2.class, 1);
+		
+		em.getTransaction().begin();  
+		order.removeProduct(product);
+		em.getTransaction().commit();
+	}
+	
 	@Test
-	void test1() {
+	void test3() {
 		
 	}
 

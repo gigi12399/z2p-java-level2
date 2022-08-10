@@ -96,11 +96,12 @@ class Testing {
 		var phone = em.find(Phone.class, 1);
 		var person = phone.getPerson();
 		
+		
+		em.clear();
+		em.getTransaction().begin();
 		person.setName("Aung Aung");
 		phone.setNumber("11111111");
-		
-		em.getTransaction().begin();
-		em.merge(person); // auto merge phone cause we give cascade = all
+		em.merge(person);
 		em.getTransaction().commit();
 	}
 	

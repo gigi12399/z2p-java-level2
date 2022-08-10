@@ -23,7 +23,7 @@ public class CustomerDetail implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "cust_id")
 	@MapsId
-	private Customer customer; // fieldName + "_" + pkFileName(customer_id)
+	private Customer customer;
 	public CustomerDetail() {
 		super();
 	}
