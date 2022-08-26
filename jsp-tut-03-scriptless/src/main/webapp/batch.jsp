@@ -22,12 +22,12 @@
 		<div class="row mt-4">
 			<form action="batch-add" class="form col-4" method="post">
 				<div class="mb-3">
-					<label for="" class="form-label">Batch Name</label> <input
-						type="text" class="form-control" name="batch" />
+					<label for="" class="form-label">Batch Name</label>
+					<input type="text" class="form-control" name="batch" />
 				</div>
 				<div class="mb-3">
-					<label for="" class="form-label">Start Date</label> <input
-						type="Date" class="form-control" name="start_date" />
+					<label for="" class="form-label">Start Date</label>
+					<input type="Date" class="form-control" name="start_date" />
 				</div>
 				<div class="row mt-4">
 					<div class="col ps-5">

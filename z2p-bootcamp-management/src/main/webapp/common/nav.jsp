@@ -6,11 +6,13 @@
 				<c:url value="/levels" var = "level"></c:url>
 				<c:url value = "/batches" var = "batch"></c:url>
 				<c:url value = "/courses" var = "course"></c:url>
+				<c:url value= "/bootcampers" var = "bootcamper"></c:url>
 				<a href=<%= request.getContextPath() %> aria-current = "page" class="nav-link me-5 ${empty title ? 'active' : ''}">Home</a>
 				<c:url value="/batches" var = "batch"></c:url>
 				<a href="${level}" class="nav-link me-5 ${title eq 'level' ? 'active' : ''}">Level</a>
 				<a href="${batch}" class="nav-link me-5 ${title eq 'batch' ? 'active' : ''}">Batch</a>
 				<a href="${course}" class="nav-link me-5 ${title eq 'course' ? 'active' : ''}">Course</a>
+				<a href="${bootcamper}" class="nav-link me-5 ${title eq 'bootcamper' ? 'active' : '' }">Bootcamper</a>
 			</div>
 		</div>
 	</div>
